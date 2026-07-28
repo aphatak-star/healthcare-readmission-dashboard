@@ -5,6 +5,13 @@ An end-to-end healthcare analytics project using SQL and Tableau to analyze CMS 
 
 This project explores 30-day heart failure readmission performance across 3,151 U.S. hospitals using publicly available Centers for Medicare & Medicaid Services (CMS) data. The data was queried using SQL and visualized in an interactive Tableau dashboard to identify national, state, and hospital-level trends.
 
+## Data Preparation
+
+- Filtered the CMS dataset to include only the Heart Failure (READM_30_HF) measure
+- Removed unnecessary columns
+- Standardized field names and verified missing values
+- Saved the cleaned dataset for SQL analysis and Tableau visualization
+
 ## Dashboard Features
 
 - KPI summary cards
