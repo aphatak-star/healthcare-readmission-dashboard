@@ -46,3 +46,9 @@ This project explores 30-day heart failure readmission performance across 3,151 
 ## Data Source
 
 Centers for Medicare & Medicaid Services (CMS) Provider Data.
+
+## Live Interactive Dashboard
+
+View the dashboard on Tableau Public:
+
+https://public.tableau.com/views/HospitalReadmissionsProjectFinal/HeartFailureReadmissionDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
