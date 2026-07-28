@@ -58,4 +58,4 @@ Centers for Medicare & Medicaid Services (CMS) Provider Data.
 
 View the dashboard on Tableau Public:
 
-https://public.tableau.com/views/HospitalReadmissionsProjectFinal/HeartFailureReadmissionDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+https://public.tableau.com/views/HospitalReadmissionsProjectFinal_17852052721290/HeartFailureReadmissionDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
