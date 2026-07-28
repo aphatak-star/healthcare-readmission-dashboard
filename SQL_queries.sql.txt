@@ -1,0 +1,111 @@
+-- QUERY 1: Count the total number of hospitals
+SELECT COUNT(*) AS total_hospitals
+FROM hf_readmissions
+
+-- QUERY 2: Calculate average heart failure readmission score
+SELECT ROUND(AVG(score), 2) AS average_score
+FROM hf_readmissions
+
+-- QUERY 3: Average denominator
+SELECT ROUND(AVG(denominator), 2) AS average_denominator
+FROM hf_readmissions
+
+-- QUERY 4: Distribution of hospitals
+SELECT compared_to_national,
+       COUNT(*) AS hospital_count
+FROM hf_readmissions
+GROUP BY compared_to_national
+
+-- QUERY 5: Average score  by state
+SELECT state,
+       ROUND(AVG(score),2) AS average_score
+FROM hf_readmissions
+GROUP BY state
+ORDER BY average_score
+
+-- QUERY 6: Top 10 hospitals
+SELECT facility_name,
+       city,
+       state,
+       score,
+       compared_to_national
+FROM hf_readmissions
+ORDER BY score ASC
+LIMIT 10
+
+-- QUERY 7: Bottom 10 hospitals
+SELECT facility_name,
+       city,
+       state,
+       score,
+       compared_to_national
+FROM hf_readmissions
+ORDER BY score DESC
+LIMIT 10
+
+-- QUERY 8: Which states have the most hospitals?
+SELECT state,
+       COUNT(*) AS hospital_count
+FROM hf_readmissions
+GROUP BY state
+ORDER BY hospital_count DESC
+
+-- QUERY 9: Better performing hospitals only
+SELECT facility_name,
+       state,
+       score
+FROM hf_readmissions
+WHERE compared_to_national = 'Better Than the National Rate'
+
+-- QUERY 10: Average score by performance category
+SELECT compared_to_national,
+       ROUND(AVG(score),2) AS average_score,
+       COUNT(*) AS hospitals
+FROM hf_readmissions
+GROUP BY compared_to_national
+
+-- QUERY 11: Largest hospitals
+SELECT facility_name,
+       state,
+       denominator
+FROM hf_readmissions
+ORDER BY denominator DESC
+LIMIT 10
+
+-- QUERY 12: Average denominator by state
+SELECT state,
+       ROUND(AVG(denominator),2) AS avg_patients
+FROM hf_readmissions
+GROUP BY state
+ORDER BY avg_patients DESC
+
+-- QUERY 13: States with the most "Better than National" hospitals
+SELECT state,
+       COUNT(*) AS better_hospitals
+FROM hf_readmissions
+WHERE compared_to_national = 'Better Than the National Rate'
+GROUP BY state
+ORDER BY better_hospitals DESC
+
+-- QUERY 14: States with the most "Worse than National" hospitals
+SELECT state,
+       COUNT(*) AS worse_hospitals
+FROM hf_readmissions
+WHERE compared_to_national = 'Worse Than the National Rate'
+GROUP BY state
+ORDER BY worse_hospitals DESC
+
+-- QUERY 15: Largest hospitals with poor performance
+SELECT facility_name,
+       state,
+       denominator,
+       score
+FROM hf_readmissions
+WHERE compared_to_national = 'Worse Than the National Rate'
+ORDER BY denominator DESC
+
+-- QUERY 16: checking tableau mistake
+SELECT "Compared to National",
+       COUNT(*) AS hospital_count
+FROM hf_readmissions
+GROUP BY "Compared to National";
